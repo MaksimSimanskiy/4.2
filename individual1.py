@@ -32,11 +32,12 @@ class Real:
     def __mul__(self, other):  # *
         self.first = self.first * other
         self.second = (self.second / 10) * other
-        print("Результат умножения - ", self.first + self.second)
+        return self.first + self.second)
 
 
 if __name__ == '__main__':
     t1 = Real(12, 5)
     t2 = Real(6, 5)
+    t1.read()
     t1.display()
     print(t1 * 5)
