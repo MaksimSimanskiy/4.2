@@ -34,19 +34,19 @@ class BitString:
         print(f"Длина числа {self.other}")
 
     def __and__(self, other):
-        return print(f"Результат вычисления иключающее ИЛИ {self.number & other.number}")
+        return self.number & other.number
 
     def __xor__(self, other):
-        return print(f"Результат вычисления иключающее ИЛИ {self.number ^ other.number}")
+        return self.number ^ other.number
 
     def __or__(self, other):
-        return print(f"Результат вычисления ИЛИ {self.number | other.number}")
+        return self.number | other.number
 
     def __lshift__(self, other):
-        return print(f"Результат вычисления сдвига налево {self.number << other}")
+        return self.number << other
 
     def __rshift__(self, other):
-        return print(f"Результат вычисления сдвига направо {self.number >> other}")
+        return self.number >> other
 
     def __invert__(self):
         return ~self.number
@@ -55,10 +55,10 @@ class BitString:
 if __name__ == '__main__':
     new = BitString(15)
     new2 = BitString(15)
-    new & new2
-    new >> 4
-    new << 4
-    new | new2
+    print(new & new2)
+    print(new >> 4)
+    print(new << 4)
+    print(new | new2)
     new.size()
     new.display()
     new2.display()
