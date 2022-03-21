@@ -42,5 +42,6 @@ class Real:
 if __name__ == '__main__':
     t1 = Real(12, 5)
     t2 = Real(6, 5)
+    t2.read()
     t1.display()
     print(t1 * 5)
