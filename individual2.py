@@ -21,11 +21,12 @@
 
 class WorkTeacher:
 
-    def __init__(self, sname, date, discipline):
+    def __init__(self, sname, date):
         sgs = 100
         self.sname = sname
         self.date = date
-        self.discipline = self.uniq(discipline)
+        self.discipline = []
+        self.uniq(self.discipline)
         self.load = self.all_hours()
         self.stavka = self.load / sgs
         if (self.stavka > 1.5):
@@ -64,15 +65,18 @@ class WorkTeacher:
     def display(self):
         print(f"Список предметов {self.discipline}")
 
-    def add(self, other):
-        self.discipline.append(other)
+    def add(self, *args):
+        for i in args:
+            self.discipline.append(i)
         self.all_hours()
+        self.uniq(self.discipline)
         return self.discipline
 
     def remove(self, other):
         self.discipline.remove(other)
         return self.discipline
 
+    
 if __name__ == '__main__':
     math = {'name': "Algebra", 'term': 2, 'students': 45,
             'hours_lekt': 20, 'hours_pract': 40, 'cont': 'exam'}
@@ -82,10 +86,10 @@ if __name__ == '__main__':
            'hours_lekt': 20, 'hours_pract': 25, 'cont': 'zachet'}
     fizra = {'name': "Fizcultura", 'term': 1, 'students': 60,
              'hours_lekt': 10, 'hours_pract': 35, 'cont': 'zachet'}
-    list_sub = [math, rus, litra]
-    a = WorkTeacher('Сергей', '25/24/22', list_sub)
-    a.add(fizra)
+    a = WorkTeacher('Иванов', '25.4.21')
+    a.add(litra, fizra, rus, math)
     a.display()
     print(a.size())
     a.remove(litra)
     a.display()
+    
